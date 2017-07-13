@@ -5,6 +5,6 @@ import java.io.IOException;
 
 public class FileGenerator {
 
-    public static void generator(String output) throws IOException {
+    public static void generator(String output,int type) throws IOException {
     }
 }

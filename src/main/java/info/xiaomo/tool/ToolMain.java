@@ -33,7 +33,7 @@ public class ToolMain {
             properties.load(in);
             String input = (String) properties.get("input");
             String output = (String) properties.get("output");
-
+            int type = Integer.parseInt(properties.getProperty("type"));
 
 
             File file = new File(input);
@@ -44,11 +44,10 @@ public class ToolMain {
                 }
                 for (String fileName : fileList) {
                     System.out.println("处理：" + fileName + "...");
-                    FileGenerator.generator(output);
+                    FileGenerator.generator(output,type);
                 }
-
             } else {
-                FileGenerator.generator(output);
+                FileGenerator.generator(output,type);
             }
             System.out.println("生成完毕.");
         } finally {
