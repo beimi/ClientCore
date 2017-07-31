@@ -1,6 +1,9 @@
 package info.xiaomo.tool;
 
+import info.xiaomo.tool.config.ConfigReader;
+import info.xiaomo.tool.config.FileConfig;
 import info.xiaomo.tool.util.FileGenerator;
+import org.dom4j.DocumentException;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,12 +26,10 @@ import java.util.Properties;
  * Copyright(©) 2017 by xiaomo.
  */
 public class ToolMain {
-    private static final String CONFIG_URL = "F:\\ChessGame\\tool\\src\\main\\resources\\tool.properties";
-
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, DocumentException {
         InputStream in = null;
         try {
-            in = new FileInputStream(CONFIG_URL);
+            in = new FileInputStream(args[0]);
             Properties properties = new Properties();
             properties.load(in);
             String input = (String) properties.get("input");
@@ -44,10 +45,12 @@ public class ToolMain {
                 }
                 for (String fileName : fileList) {
                     System.out.println("处理：" + fileName + "...");
-                    FileGenerator.generator(output,type);
+                    FileConfig ret = ConfigReader.read(file.getAbsolutePath() + "/" + fileName);
+                    FileGenerator.generator(ret, output, type);
                 }
             } else {
-                FileGenerator.generator(output,type);
+                FileConfig ret = ConfigReader.read(input);
+                FileGenerator.generator(ret, output, type);
             }
             System.out.println("生成完毕.");
         } finally {
