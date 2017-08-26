@@ -1,4 +1,0 @@
-		int {fieldName}_length = readShort(buf);
-		for (int {fieldName} = 0; {fieldName} < {fieldName}_length; {fieldName}++) {
-			{readMethod}
-		}

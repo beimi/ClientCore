@@ -1,8 +1,0 @@
-	public List<{type}> get{methodName}() {
-		return {fieldName};
-	}
-
-	public void set{methodName}(List<{type}> {fieldName}) {
-		this.{fieldName} = {fieldName};
-	}
-

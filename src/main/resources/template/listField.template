@@ -1,5 +1,0 @@
-	/**
-	 * {doc}
-	 */
-	private List<{type}> {fieldName} = new ArrayList<{type}>();
-

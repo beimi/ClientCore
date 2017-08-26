@@ -1,4 +1,0 @@
-		writeShort(buf, this.{fieldName}.size());
-		for (int {fieldName} = 0; {fieldName} < this.{fieldName}.size(); {fieldName}++) {
-			{writeMethod}
-		}
